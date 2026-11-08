@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>лаб 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<table id="page">
+    <tr>
+        <td colspan="2" class="header-cell">
+            <span class="header-item">Поветин Захарий</span>
+            <span class="header-item">Группа P3216</span>
+            <span class="header-item">Вариант 22609</span>
+        </td>
+    </tr>
+    <tr>
+        <td><canvas id="area" width="300" height="300"></canvas></td>
+        <td>
+            <form id="point-form" novalidate>
+                <table>
+                    <tr>
+                        <td>X:</td>
+                        <td>
+                            <div id="x-buttons" class="x-group"></div>
+                            <input type="hidden" id="x-value">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Y:</td>
+                        <td><input type="text" id="y-input" placeholder="-3..5"></td>
+                    </tr>
+                    <tr>
+                        <td>R:</td>
+                        <td><div id="r-radios" class="r-group"></div></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button type="submit">Проверить</button>
+                        </td>
+                    </tr>
+                </table>
+                <div id="error"></div>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <table id="results">
+                <thead>
+                <tr><th>X</th><th>Y</th><th>R</th><th>Результат</th><th>Время</th></tr>
+                </thead>
+                <tbody id="results-body"></tbody>
+            </table>
+        </td>
+    </tr>
+</table>
+<script src="script.js"></script>
+</body>
+</html>
