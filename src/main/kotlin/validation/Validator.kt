@@ -5,7 +5,7 @@ import ru.qwuadrixx.webprog.model.Point
 
 class Validator {
     companion object {
-        private val allowedX = listOf(-3, -2, -1, 0, 1, 2, 3, 4, 5)
+        private val allowedX = listOf(-2.0, -1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5, 2.0)
         private val allowedY: (Double) -> Boolean = { it > -3 && it < 5 }
         private val allowedR = listOf(1, 2, 3, 4, 5)
 
@@ -14,7 +14,7 @@ class Validator {
             val y = point.y?.toDoubleOrNull() ?: return ValidationResult.Invalid("y must be a number")
             val r = point.r?.toDoubleOrNull() ?: return ValidationResult.Invalid("r must be a number")
 
-            if (!x.isExactInt() || x.toInt() !in allowedX) {
+            if (x !in allowedX) {
                 return ValidationResult.Invalid("x must be one of $allowedX")
             }
             if (!allowedY(y)) {
@@ -24,7 +24,7 @@ class Validator {
                 return ValidationResult.Invalid("r must be one of $allowedR")
             }
 
-            return ValidationResult.Valid(Point(x.toInt(), y, r.toInt()))
+            return ValidationResult.Valid(Point(x, y, r.toInt()))
         }
     }
 }

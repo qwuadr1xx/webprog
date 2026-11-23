@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "2.2.21"
+    war
 }
 
 group = "ru.qwuadrixx"
@@ -11,8 +12,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
-    implementation(files("libs/fastcgi_lib.jar"))
-    implementation("org.json:json:20260814")
+    compileOnly("jakarta.servlet:jakarta.servlet-api:6.0.0")
 }
 
 kotlin {
@@ -23,14 +23,6 @@ tasks.test {
     useJUnitPlatform()
 }
 
-tasks.jar {
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    manifest {
-        attributes("Main-Class" to "ru.qwuadrixx.webprog.MainKt")
-    }
-    from({
-        configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) }
-    })
-    exclude("META-INF/versions/**", "module-info.class")
-    archiveFileName.set("web.jar")
+tasks.war {
+    archiveFileName.set("webprog.war")
 }
