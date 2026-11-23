@@ -64,3 +64,32 @@ input[type="radio"] {
     min-height: 16px;
     margin-top: 6px;
 }
+
+.header-cell {
+    display: block;
+    padding: 8px 0 16px;
+}
+
+.error {
+    color: red;
+}
+
+.result-table {
+    border-collapse: collapse;
+    margin: 12px 0;
+}
+
+.result-table th,
+.result-table td {
+    border: 1px solid #999;
+    padding: 4px 10px;
+    text-align: center;
+}
+
+.verdict {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.verdict.hit { color: #2a7a2a; }
+.verdict.miss { color: #a33; }
